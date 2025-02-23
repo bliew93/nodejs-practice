@@ -20,6 +20,7 @@ export const shortenedUrlsIndex = async (req, res, next) => {
 export const getShortenedUrl = async (req, res, next) => {
   try {
     const urlId = req.params.id;
+    const redirect = req.query.redirect;
 
     const shortenedUrl = await getShortUrl(urlId);
 
@@ -28,6 +29,10 @@ export const getShortenedUrl = async (req, res, next) => {
         success: false,
         message: "Shortened URL not found",
       });
+    }
+
+    if (redirect === "true") {
+      res.redirect(shortenedUrl.rows[0].url);
     }
 
     res.status(200).json({

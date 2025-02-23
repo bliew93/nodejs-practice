@@ -1,4 +1,3 @@
-// Finish the rest of the routes, controllers, model methods, etc.
 // Move on to making a simple Todo List implementation
 // Todo list should be almost the same kinda stuff as the bitly stuff just extra practice
 
