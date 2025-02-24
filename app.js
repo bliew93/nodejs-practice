@@ -4,12 +4,14 @@ import { BASE_URL, PORT, NODE_ENV } from "./config/env.js";
 
 import pgPool from "./config/db.js";
 import shortenedUrlRouter from "./routes/shortenedUrl.routes.js";
+import todosRouter from "./routes/todos.routes.js";
 
 const app = express();
 
 app.use(express.json());
 
 app.use("/api/v1/bitly", shortenedUrlRouter);
+app.use("/api/v1/todos", todosRouter);
 
 app.get("/", async (req, res) => {
   res.send("Welcome to my Test Node.js + Express App!");
